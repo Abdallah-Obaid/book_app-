@@ -1,0 +1,75 @@
+
+*{
+    margin: 0px;
+    /* width: */
+    
+}
+@media  (min-width: 768px) {
+    body{
+        display: none;
+    }
+}    
+@media  (max-width: 767px) {
+
+body{
+    background-color: tomato;
+
+    }
+form{
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    /* width: 300px; */
+    /* justify-content: center; */
+    /* align-items: center; */
+
+}
+header{
+    background-color: black;
+    color: cornsilk;
+    padding-top:4% ;
+    padding:4% ;
+}
+a{
+    float: right;
+    text-decoration: none;
+    color: white;
+}
+h2{
+    background-color: darkgray;
+    padding: 3%;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'IM Fell French Canon SC', serif;
+}
+input{
+    margin-top:3% ;
+    padding: 3%; 
+}
+label{
+    background-color: darkgray;
+    margin-top:3% ;
+    padding: 2%;
+    
+}
+button{
+    background-color: rgb(66, 57, 57);
+    color: whitesmoke;
+    margin-top:3% ;
+    text-decoration: none;
+    border: none;
+    padding: 3%;
+}
+footer{
+    background-color: teal;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+}

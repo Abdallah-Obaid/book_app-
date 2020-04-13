@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="/base.css">
+</head>
+<body>
+    <header><h1>Best Books!</h1>
+        <a href="/searches/new"><img src="/burger.png" alt="burgur" style="width: 150px; margin-top: -10px; right: 0px;position: absolute;"></a>
+    </header>
+    <h2>Search by Title or Author</h2>
+    <main>     
+        <form action="/searches" method="POST">
+        <input type="text" name="S" placeholder="Enter a title or author">
+        <label>Title
+        <input type="radio" name="radio" value="intitle" >
+        </label>
+        <label>Author
+        <input type="radio" name="radio" value="inauthor">
+        </label>
+        <button>Search the Google Books API</button>
+        </form>
+    </main>
+    <footer>
+        <p id="footer">No copyright © 2020</p>
+    </footer>
+</body>
+</html>
