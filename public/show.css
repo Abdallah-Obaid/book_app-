@@ -1,0 +1,90 @@
+
+*{
+    margin: 0px;
+    /* width: */
+    
+}
+@media  (min-width: 768px) {
+    body{
+        display: none;
+    }
+}  
+@media  (max-width: 767px) {
+    body{
+        background-color: tomato;
+    
+        }
+  
+    header{
+        background-color: black;
+        color: cornsilk;
+        padding:4% ;
+    }
+    a{
+        float: right;
+        text-decoration: none;
+        color: white;
+    }
+    .main{
+        margin: 5%;
+        background-color: thistle;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 1px 1px 7px 7px;
+
+    }  
+    img{
+        margin-top: 5%;
+        text-align: center;
+        height: 60%;
+        width: 40%;
+        align-items: center;
+        border: snow solid 4px;
+    }
+    h2{
+        margin-top: 3%;
+        font-size:  150%;
+        font-family: 'Dancing Script', cursive;
+        font-family: 'IM Fell French Canon SC', serif;
+    }
+    h3{
+        margin-top: 3%;
+        font-family: 'Dancing Script', cursive;
+
+    }
+    p{
+        margin-top: 3%;
+    }
+    #description{
+        background-color: rgb(247, 233, 247);
+        height: 90px;
+        width: 90%;
+        overflow: hidden;
+    }
+    #sec{
+        display: flex;
+        padding: 77%S;
+    }
+    button{
+        background-color: rgb(66, 57, 57);
+        color: whitesmoke;
+        margin: 21px;
+        width: 111px;
+        margin-top: 7%;
+        margin-bottom: 12%;
+        text-decoration: none;
+        border: none;
+        padding: 4%;
+    }
+    footer{
+        background-color: teal;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+}
