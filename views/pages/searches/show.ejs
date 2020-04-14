@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/show.css">
-    <title>Document</title>
-</head>
+    <%- include('../../layout/head') %>
 <body>
-    <header><h1>Best Books!</h1>
-        <a href="/searches/new"><img src="/burger.png" alt="burgur" style="width: 150px; margin-top: -10px;margin-right:-30px ;border: none;"></a>
-    </header>
-
+    <%- include('../../layout/header') %>
     <main>
-        <%maparray.forEach((val)=>{%>
-        <div class="main">
-        <img src="<%=val.img%>" alt="بخبخ">
-         <h2><%=val.title%></h2>
-         <h3><%=val.authors[0]%></h3>
-         <p id="description"><%=val.description%></p>
-         <p>ISPN:<%=val.ispn%></p>
-         <p>Bookshelf:<%=val.categories[0]%></p>
-         <div id="sec">
-             <button>update details</button>
-             <button>delete book</button>
-         </div>
-        </div>
+        <%maparray.forEach((val,i)=>{%>
+        <form action="/books" method="POST">
+            <input type="text" value="<%=i%>" name = "i" style="display:none ;">
+            <div class="main">
+            <img src="<%=val.img%>" alt="بخبخ">
+            <h2><%=val.title%></h2>
+            <h3><%=val.authors[0]%></h3>
+            <p id="description"><%=val.description%></p>
+            <p>ISPN:<%=val.ispn%></p>
+            <p>Bookshelf:<%=val.categories[0]%></p>
+                <button type="submit">Select This Box</button>
+                </div>
+            </div>
+        </form>
         <%})%>
     </main>
     <footer>
-        <p id="footer">No copyright © 2020</p>
+        <%- include('../../layout/footer') %>
     </footer>
     
 </body>
