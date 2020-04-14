@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="/base.css">
 </head>
 <body>
-    <header><h1>Best Books!</h1>
-        <a href="/searches/new"><img src="/burger.png" alt="burgur" style="width: 150px; margin-top: -10px; right: 0px;position: absolute;"></a>
-    </header>
+    <%- include('../../layout/header') %>
     <h2>Search by Title or Author</h2>
     <main>     
         <form action="/searches" method="POST">
@@ -26,7 +24,7 @@
         </form>
     </main>
     <footer>
-        <p id="footer">No copyright © 2020</p>
+        <%- include('../../layout/footer') %>
     </footer>
 </body>
 </html>

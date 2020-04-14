@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../../layout/head') %>
+<body id="why">
+    <%- include('../../layout/header') %>
+    <main>
+            <section class="main">
+            <img src="<%=detaildata.img%>" alt="بخبخ">
+             <h2><%=detaildata.title%></h2>
+             <h3><%=detaildata.authors[0]%></h3>
+             <p id="description"><%=detaildata.description%></p>
+             <p>ISPN:<%=detaildata.ispn%></p>
+             <p>Bookshelf:<%=detaildata.categories[0]%></p>
+            </section>
+    </main>
+    <%- include('../../layout/footer') %>
+</body>
+</html>

@@ -4,16 +4,16 @@
     /* width: */
     
 }
-@media  (min-width: 768px) {
+/* @media  (min-width: 768px) {
     body{
         display: none;
     }
-}  
-@media  (max-width: 767px) {
+}   */
+/* @media  (max-width: 767px) {
     body{
         background-color: tomato;
     
-        }
+        } */
   
     header{
         background-color: black;
@@ -87,4 +87,4 @@
         left: 0;
         right: 0;
     }
-}
+/* } */
