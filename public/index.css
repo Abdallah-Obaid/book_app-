@@ -20,8 +20,8 @@ form{
     margin-right: 5%;
     display: flex;
     flex-direction: column;
-    height: 300px;
-    margin-bottom: 30%;
+    /* height: 300px; */
+    /* margin-bottom: 30%; */
     /* width: 300px; */
     /* justify-content: center; */
     /* align-items: center; */
@@ -38,7 +38,7 @@ a{
     text-decoration: none;
     color: white;
 }
-h2{
+#h2{
     background-color: darkgray;
     padding: 3%;
     text-align: center;
@@ -72,5 +72,66 @@ footer{
     bottom: 0;
     left: 0;
     right: 0;
+}
+.main{
+    margin: 10%;
+    padding-bottom: 3%;
+    background-color: thistle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1px 1px 7px 7px;
+}
+
+#img{
+    margin-top: 5%;
+    text-align: center;
+    height: 60%;
+    width: 40%;
+    align-items: center;
+    border: snow solid 4px;
+}
+#h21{
+    margin-top: 3%;
+    font-size:  150%;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'IM Fell French Canon SC', serif;
+}
+h3{
+    margin-top: 3%;
+    font-family: 'Dancing Script', cursive;
+}
+#description{
+    background-color: white;
+    width: 80%;
+    border-radius: 20px;
+    margin-top: 2%;
+}
+#Bookshelf{
+    margin-top: 3%;
+}
+#ISPN{
+    margin-top: 3%;
+}
+#button{
+    background-color: rgb(66, 57, 57);
+    color: whitesmoke;
+    margin-top:3% ;
+    text-decoration: none;
+    border: none;
+    padding: 3%;
+}
+
+#form{
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    /* height: 300px; */
+    margin-bottom: 5%;
+    /* width: 300px; */
+    /* justify-content: center; */
+    /* align-items: center; */
+
 }
 /* } */
