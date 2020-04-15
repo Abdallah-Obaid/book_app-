@@ -1,27 +1,24 @@
 'use strict'
 require('dotenv').config();
 const fs = require('fs')
-
 const express=require('express');
-var maparray = [];
 const app = express();
 const superagent =require("superagent");
 const pg = require('pg');
 const PORT =process.env.PORT || 3000;
 const bodyparser=require('body-parser') //**to make the radio accepted as a key in the returned json file**
 const client = new pg.Client(process.env.DATABASE_URL);
-
+const methodoverride = require('method-override');
 //using things
 // SPecify a directory for static resources:
 app.use(express.static('./public'));
 // **to make the radio accepted as a key in the returned json file** 
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
+app.use(methodoverride("method"));
 app.set('view engine','ejs');
-
 //routers
 app.get('/',(req,res)=>{
-    console.log("new page")
     client.query("SELECT * FROM my_books;")
     .then(data =>{
         res.render('pages/index',{bookdata:data.rows});
@@ -41,11 +38,9 @@ app.get('/searches/new',(req,res)=>{
 });
 
 app.get('/books/:id',(req,res)=>{
-    console.log(req.params.id)
     client.query(("SELECT * FROM my_books WHERE id=$1;")
     ,[req.params.id])
     .then(data =>{
-        // console.log(data.rows[0])
         res.render("pages/books/detail",{detaildata:data.rows[0]})
         
     }).catch(err=>{
@@ -59,8 +54,7 @@ app.post('/searches',(req,res)=>{
 
     superagent.get(`https://www.googleapis.com/books/v1/volumes?q=${searchMethod}:${searchByValue}`)
     .then(data =>{
-        console.log(data.body.items)
-            maparray=data.body.items.map((ele)=>{
+            let maparray=data.body.items.map((ele)=>{
             let ispn = ele.volumeInfo.industryIdentifiers
             if(! ispn){
                 ispn = "No ISPN"
@@ -94,16 +88,36 @@ app.get('*',(req,res)=>{
 });
 
 app.post("/books",(req,res) =>{
-     var detaildata = maparray[Number(req.body.i)];
-     var queryArray = [ detaildata.img, detaildata.title,detaildata.authors[0],detaildata.description, detaildata.ispn,detaildata.categories[0]]
+     var detaildata = req.body;
+     var safeValue = [ detaildata.img, detaildata.title,detaildata.authors,detaildata.description, detaildata.ispn,detaildata.categories]
      var sql = "INSERT INTO my_books (img,title,authors,description,ispn,categories) VALUES ($1,$2,$3,$4,$5,$6);"
-     console.log(queryArray);
-     client.query(sql,queryArray,
+     client.query(sql,safeValue,
      (error, result) => {
         res.render("pages/books/detail",{detaildata:detaildata})
      })
 })
 
+app.delete("/delete/:id",(req,res) =>{
+    var safeValue = [req.params.id]
+    var sql = "DELETE FROM my_books WHERE id = $1;"
+    client.query(sql,safeValue,
+    (error, result) => {
+       res.redirect("/")
+    })
+})
+
+app.put("/update/:id",(req,res) =>{
+    var detaildata = req.body;
+    console.log(detaildata)
+    var safeValue = [ detaildata.img, detaildata.title,detaildata.authors,detaildata.description, detaildata.ispn,detaildata.categories,req.params.id]
+    var sql = "UPDATE my_books SET img = $1 ,title = $2 ,authors = $3,description = $4 ,ispn = $5 ,categories = $6 WHERE id = $7"
+    client.query(sql,safeValue)
+    .then(()=>{
+        res.redirect(`/books/${req.params.id}`)
+    }).catch((err)=>{
+        res.render("pages/error",{"err" : err} )
+    })
+})
 // fs.readFile('./package.json', 'utf8', (err, jsonString) => {
 //     if (err) {
 //         console.log("File read failed:", err)

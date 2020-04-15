@@ -11,8 +11,25 @@
              <p id="description"><%=detaildata.description%></p>
              <p>ISPN:<%=detaildata.ispn%></p>
              <p>Bookshelf:<%=detaildata.categories[0]%></p>
+             <button type="button" onclick="updateBookes(); function updateBookes() { $('.delete_update').toggle()}">Update</button>
+             <form action="/delete/<%=detaildata.id%>?method=delete" method="POST">
+                <button type="submit">Delete</button>
+            </form>
             </section>
+            <div class="delete_update" style="display:none" >
+            <form action="/update/<%=detaildata.id%>?method=put" method="POST">
+                <input name="img" value="<%=detaildata.img%>">
+                <input name="title" value="<%=detaildata.title%>">
+                <input name="authors" value="<%=detaildata.authors[0]%>">
+                <input name="description" value="<%=detaildata.description%>">
+                <input name="ispn" value="<%=detaildata.ispn%>">
+                <label for="categories">Enter Bookshelf Name</label>
+                <input name="categories" value="<%=detaildata.categories[0]%>">
+                <button type="submit">Update</button>
+            </form>
+            </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <%- include('../../layout/footer') %>
 </body>
 </html>
