@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../../layout/head') %>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet">
+        <title>Document</title>
+        <link rel="stylesheet" href="/show.css">
+    </head>
+    <body>
     <%- include('../../layout/header') %>
     <main>
         <%maparray.forEach((val,i)=>{%>
         <form action="/books" method="POST">
-            <input type="text" value="<%=i%>" name = "i" style="display:none ;">
+          <!-- <  <input type="text" value="<%=i%>" name = "i" style="display:none ;">> -->
             <div class="main">
-            <img src="<%=val.img%>" alt="بخبخ">
-            <h2><%=val.title%></h2>
-            <h3><%=val.authors[0]%></h3>
-            <p id="description"><%=val.description%></p>
-            <p>ISPN:<%=val.ispn%></p>
-            <p>Bookshelf:<%=val.categories[0]%></p>
-                <button type="submit">Select This Box</button>
-                </div>
+                <img src="<%=val.img%>" alt="بخبخ" class="img">
+                <h2><%=val.title%></h2>
+                <h3><%=val.authors[0]%></h3>
+                <p id="description"><%=val.description%></p>
+                <p>ISPN:<%=val.ispn%></p>
+                <p>Bookshelf:<%=val.categories[0]%></p>
+            <button id="button" type="button" onclick="addBookes(); function addBookes() { $('.added<%=i%>').toggle();console.log('asdsadasdascasxas');}">Select This Box</button>
+            
+            <div class="added<%=i%>" style="display:none" id="selectForm" >
+                <input name="img" value="<%=val.img%>" placeholder="Insert img url">
+                <input name="title" value="<%=val.title%>"placeholder="Book title">
+                <input name="authors" value="<%=val.authors[0]%>" placeholder="Author name">
+                <input name="description" value="<%=val.description%>" placeholder="Book description">
+                <input name="ispn" value="<%=val.ispn%>" placeholder="Ispn number">
+                <label for="categories">Enter Bookshelf Name</label>
+                <input name="categories" value="<%=val.categories[0]%>" placeholder="Bookshelf">
+                <button type="submit">Add</button>
+            </div>
             </div>
         </form>
         <%})%>
@@ -23,6 +40,6 @@
     <footer>
         <%- include('../../layout/footer') %>
     </footer>
-    
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 </body>
 </html>

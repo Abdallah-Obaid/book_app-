@@ -5,14 +5,32 @@
     <%- include('../../layout/header') %>
     <main>
             <section class="main">
-            <img src="<%=detaildata.img%>" alt="بخبخ">
-             <h2><%=detaildata.title%></h2>
+            <img id="img" src="<%=detaildata.img%>" alt="بخبخ">
+             <h2 id="h21"><%=detaildata.title%></h2>
              <h3><%=detaildata.authors[0]%></h3>
              <p id="description"><%=detaildata.description%></p>
-             <p>ISPN:<%=detaildata.ispn%></p>
-             <p>Bookshelf:<%=detaildata.categories[0]%></p>
+             <p id="ISPN">ISPN:<%=detaildata.ispn%></p>
+             <p id="Bookshelf">Bookshelf:<%=detaildata.categories[0]%></p>
+             <button type="button" onclick="updateBookes(); function updateBookes() { $('.delete_update').toggle()}">Update</button>
+             <form id="form" action="/delete/<%=detaildata.id%>?method=delete" method="POST">
+                <button id="button" type="submit">Delete</button>
+            </form>
+            <div class="delete_update" style="display:none" >
+                <form action="/update/<%=detaildata.id%>?method=put" method="POST">
+                    <input name="img" value="<%=detaildata.img%>">
+                    <input name="title" value="<%=detaildata.title%>">
+                    <input name="authors" value="<%=detaildata.authors[0]%>">
+                    <input name="description" value="<%=detaildata.description%>">
+                    <input name="ispn" value="<%=detaildata.ispn%>">
+                    <label for="categories">Enter Bookshelf Name</label>
+                    <input name="categories" value="<%=detaildata.categories[0]%>">
+                    <button id="button" type="submit">Update</button>
+                </form>
+                </div>
             </section>
+
     </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <%- include('../../layout/footer') %>
 </body>
 </html>

@@ -2,18 +2,16 @@
 <html lang="en">
     <%- include('../layout/head') %>
 <body id="why">
+    <%- include('../layout/header') %>
     <main>
-        <h2>hi</h2>
-        <%- include('../layout/header') %>
+        <h2 id="h2"><%=bookdata.length%> Saved Books</h2>
         <div>
-        <p>
-            <%=bookdata.length%>
-        </p>
+
         </div>
         <%bookdata.forEach((val)=>{%>
         <div class="main">
-        <img src="<%=val.img%>" alt="بخبخ">
-         <h2><%=val.title%></h2>
+        <img id="img" src="<%=val.img%>" alt="بخبخ">
+         <h2 id="h21"><%=val.title%></h2>
          <h3><%=val.authors[0]%></h3>
          <button><a href="/books/<%=val.id%>">View Details</a></button>
         </div>

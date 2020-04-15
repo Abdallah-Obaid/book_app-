@@ -15,26 +15,28 @@
     
         } */
   
-    header{
-        background-color: black;
-        color: cornsilk;
-        padding:4% ;
-    }
-    a{
-        float: right;
-        text-decoration: none;
-        color: white;
-    }
+        header{
+            background-color: black;
+            color: cornsilk;
+            padding-top:4% ;
+            padding:4% ;
+        }
+        a{
+            float: right;
+            text-decoration: none;
+            color: white;
+        }
     .main{
-        margin: 5%;
+        margin: 10%;
+        padding-bottom: 3%;
         background-color: thistle;
         display: flex;
         flex-direction: column;
         align-items: center;
         border-radius: 1px 1px 7px 7px;
-
-    }  
-    img{
+    }
+    
+    .img{
         margin-top: 5%;
         text-align: center;
         height: 60%;
@@ -66,16 +68,47 @@
         display: flex;
         padding: 77%S;
     }
+    #selectForm{
+        margin: 5%;
+        background-color: thistle;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 1px 1px 7px 7px;
+
+    }
+    input{
+        margin-top: 5%;
+        width: 151%;
+        background-color: unset;
+    }
+    
+    label {
+    margin-top: 5%;
+    }
+
+    
     button{
         background-color: rgb(66, 57, 57);
         color: whitesmoke;
-        margin: 21px;
-        width: 111px;
-        margin-top: 7%;
-        margin-bottom: 12%;
+        margin: 3px;
+        width: 158px;
+        margin-top: 11%;
+        margin-bottom: 1%;
         text-decoration: none;
         border: none;
-        padding: 4%;
+        padding: 10%;
+    }
+    #button{
+        background-color: rgb(66, 57, 57);
+        color: whitesmoke;
+        margin: 3px;
+        width: 160px;
+        margin-top: 2%;
+        margin-bottom: 0%;
+        text-decoration: none;
+        border: none;
+        padding: 2%;
     }
     footer{
         background-color: teal;
@@ -87,4 +120,5 @@
         left: 0;
         right: 0;
     }
+
 /* } */
